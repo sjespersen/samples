@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>Canvas Neurons</title>
+	<style>
+		body, input, select {
+			font:12px normal Arial,sans-serif;
+			background:#222;
+			color:#fff;
+		}
+		input, canvas, select {
+			border:1px solid #999;
+			background:#333;
+		}
+		canvas {
+			margin-top:10px;
+		}
+	</style>
+</head>
+<body>
+	<form id="main">
+		<label for="amount">Amount of Points:</label> 
+		<input id="amount" size="3" value="10" /> 
+		<select id="method">
+			<option value="">Connect Dots?</option>
+			<option value="all">Connect All</option>
+			<option value="shortest">Shortest Connection</option>
+			<option value="twoforeach">Two Connections Each</option>
+		</select>
+		<input type="submit" value="update" /> 
+	</form>
+	<canvas id="neurons" width="0" height="0">Your browser does not support the canvas element. Please use a different browser to view this page.</canvas> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>
