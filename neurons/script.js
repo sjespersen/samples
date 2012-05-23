@@ -5,7 +5,7 @@ var neurons = {
 	// definition of points
 	vars: {
 		r: 3,
-		spacing: this.r*6,
+		spacing: 15,
 		minAmount: 10,
 		width:640,
 		height:300
@@ -15,22 +15,22 @@ var neurons = {
 	buildRandomCoords: function(amount) {
 		amount = amount || this.vars.minAmount;
 		this.nArray = [];
+		var used;
 		for (var i=0; i<amount; i++) {
-			var j = 0;
-			do {
-				j++;
+			for (var j=0; j<5; j++) {
 				used = false;
 				var x = parseInt(Math.random() * (canvas.width - this.vars.r*2)) + this.vars.r*2;
 				var y = parseInt(Math.random() * (canvas.height - this.vars.r*2)) + this.vars.r*2;
 				
-				for (var i=0; i<this.nArray.length; i++) {
-					if ((x > this.nArray[i][0] - this.vars.spacing) &&  (x < this.nArray[i][0] + this.vars.spacing) && (y > this.nArray[i][1] - this.vars.spacing) &&  (y < this.nArray[i][1] + this.vars.spacing)) {
+				for (var k=0; k<this.nArray.length; k++) {
+					if ((x > this.nArray[k][0] - this.vars.spacing) &&  (x < this.nArray[k][0] + this.vars.spacing) && (y > this.nArray[k][1] - this.vars.spacing) &&  (y < this.nArray[k][1] + this.vars.spacing)) {
 						used = true;
 					}
 				}
-			} while (used && j <5)
-			if (!used) {
-				this.nArray.push([x,y]);
+				if (!used) {
+					this.nArray.push([x,y]);
+					break;
+				}
 			}
 		}
 	},
